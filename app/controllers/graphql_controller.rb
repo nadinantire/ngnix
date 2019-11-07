@@ -4,7 +4,7 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
     context = {
-      blog: Blog.last
+      blog: Blog.first
     }
     result = TechappSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
